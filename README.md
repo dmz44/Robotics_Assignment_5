@@ -63,11 +63,6 @@ Rules for robot usage will apply for working with the physical Turtlebot3. Pleas
 
 ### Part 1: Running Whisper Voice Transcription Software and Espeak Text to Speech
 
-#### Hardware Setup
-
-For this assignment, you will be provided with another Jetson dedicated to running LLM. Plug in your group’s SD card to the secondary Jetson and connect the Airhug conference speaker and microphone unit to the Jetson’s USB port.
-
-Once you have booted into the Jetson’s Ubuntu environment, you need to change the default speaker and microphone (Sound -> Output device, Input device) in Ubuntu settings so that your Python script can correctly interface with the hardware.
 
 #### Running Whisper and Espeak
 
