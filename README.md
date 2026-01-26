@@ -93,7 +93,7 @@ The following instructions are from our own and not from online sources. Please 
 **[Remote-PC]** Go to the folder in a new terminal window
 
 ```bash
-cd ~/turtlebot_docker/my_code/Robotics_Assignment_5/Assignment_5_demo
+cd ~/my_code/Robotics_Assignment_5/Assignment_5_demo
 
 ```
 
@@ -160,7 +160,7 @@ The description of the prompt engineering process is left as recommended reading
 **[Remote-PC]** Go to the folder with the demo code.
 
 ```bash
-cd ~/turtlebot_docker/my_code/Robotics_Assignment_5/Assignment_5_demo
+cd ~/my_code/Robotics_Assignment_5/Assignment_5_demo
 
 ```
 
@@ -307,7 +307,7 @@ In this part, you will run your full system to demonstrate each AI model and the
 **Running Espeak**
 You can reasonably run the Espeak text-to-speech synthesizer on your own desktop machine with any architecture, meaning CPU performance for Espeak is reasonable. This guide is intended to allow your machine to run Espeak, which might help you with offloading some of the development for this assignment to your own machine. However, while this instruction was tested on our machines, we would not offer official support for you running Espeak on your own machine.
 
-[Remote PC] On your terminal, install the Espeak package
+**[Remote PC]** On your terminal, install the Espeak package
 
 ```bash
 sudo apt install espeak-ng
@@ -319,13 +319,13 @@ Reference: [https://github.com/openai/whisper](https://github.com/openai/whisper
 
 You can reasonably run the Whisper voice-to-text model on your own desktop machine with any architecture, meaning CPU-only performance for Whisper is reasonable. This guide is intended to allow your machine equipped with an Nvidia GPU to run Whisper, which might help you with offloading some of the development for this assignment to your own machine. However, while this instruction was tested on our machines, we would not offer official support for you running Whisper on your own machine.
 
-[Remote PC] It is not recommended to install Whisper or LLama in a Python virtual environment, such as Conda, if you want it to work well with ROS2 or other binary programs installed through apt-get. This is the primary reason why we did not install a Python virtual environment on Jetson.
+**[Remote PC]** It is not recommended to install Whisper or LLama in a Python virtual environment, such as Conda, if you want it to work well with ROS2 or other binary programs installed through apt-get. This is the primary reason why we did not install a Python virtual environment on Jetson.
 
 You can deactivate your Python virtual environment temporarily and install the necessary packages if you need your virtual environment.
 
-[Remote PC] Install GPU drivers such as CUDA, and neural network dependencies such as Pytorch and TorchAudio. When installing PyTorch and TorchAudio, please follow the exact instructions on the official website. [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) .
+**[Remote PC]** Install GPU drivers such as CUDA, and neural network dependencies such as Pytorch and TorchAudio. When installing PyTorch and TorchAudio, please follow the exact instructions on the official website. [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) .
 
-[Remote PC] On your terminal, install the OpenAI-Whisper package
+**[Remote PC]** On your terminal, install the OpenAI-Whisper package
 
 ```bash
 pip install -U openai-whisper
@@ -337,16 +337,16 @@ Reference: [https://github.com/ggml-org/llama.cpp](https://github.com/ggml-org/l
 
 You can technically run the Llama LLM model on your own desktop machine with any architecture. However, given how demanding LLMs can be, a Nvidia GPU or Apple Silicon will be necessary to achieve reasonable performance. This guide is intended to allow your machine equipped with an Nvidia GPU to run LLMs, which might help you with offloading some of the development for this assignment to your own machine. However, while this instruction was tested on our machines, we would not offer official support for you running LLaMa on your own machine.
 
-[Remote PC] Install NVidia GPU drivers, such as CUDA drivers.
+**[Remote PC]** Install NVidia GPU drivers, such as CUDA drivers.
 
-[Remote PC] On your terminal, install llama-cpp-python with DGGML_CUDA args. If you do not have the args, you will not be able to offload your layers onto the GPU, resulting in low performance.
+**[Remote PC]** On your terminal, install llama-cpp-python with DGGML_CUDA args. If you do not have the args, you will not be able to offload your layers onto the GPU, resulting in low performance.
 
 ```bash
 CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
 
 ```
 
-[Remote PC] Llama.cpp uses a specific format called GGUF. Please download the models for the assignment from the following links on HuggingFace. They do not require api authorization.
+**[Remote PC]** Llama.cpp uses a specific format called GGUF. Please download the models for the assignment from the following links on HuggingFace. They do not require api authorization.
 
 ```bash
 wget -c https://huggingface.co/TheBloke/Llama-2-7B-32K-Instruct-GGUF/resolve/main/llama-2-7b-32k-instruct.Q4_K_M.gguf
@@ -354,7 +354,7 @@ wget -c https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-
 
 ```
 
-[Remote PC] Modify the example codes given to reference downloaded models from step 3.
+**[Remote PC]** Modify the example codes given to reference downloaded models from step 3.
 
 #### [Recommended Reading] Prompt Engineering Techniques for Large Language Models
 
