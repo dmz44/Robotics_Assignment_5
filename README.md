@@ -35,7 +35,25 @@ Here is an introduction to LLaMa Large Language Model.
 
 ### Assignment requirement
 
-A hardware video demonstration submission is required for Milestone Assignment 5. You need to demonstrate that you can utilize various natural language pipelines for your needs. Once your group is done with the video demonstration, please submit it on Canvas along with all of your source code. Each group will submit one video and a zip file containing your source code. Refer to the demo requirement section at the end of the milestone assignment on what to include in the video. Rules for robot usage will apply for working with the physical Turtlebot3. Please refer to the inventory list given to you separately.
+A hardware video demonstration submission is required for Milestone Assignment 5. 
+
+You need to demonstrate that you can utilize various natural language pipelines for your needs. Refer to the demo requirement section at the end of the milestone assignment on what to include in the video.
+
+**[SUBMISSION RULES]**
+
+* **Individual Submission:** **Every team member must submit the video(s) separately to Canvas.** If the video is duplicated within a team, that is acceptable; however, this ensures that only active participants who have access to the team’s recordings can receive credit. 
+
+* **Standardized Hosting:** **To manage file sizes, do not upload raw video files (e.g., MP4) directly to Canvas.** Instead, **upload your videos to YouTube (set as "Unlisted")** and submit the links via a document.
+
+### Video Demo Requirements
+
+Your group will **record** one or more video clips. The estimated total length of the video clips is approximately two and a half minutes. **While you do not need to perform complex editing, please keep the total duration to a few minutes to ensure it remains concise.** One group member should narrate the video, explaining each step as it's performed. At the beginning of the first video clip, please show every group member's face and state the names of all group members.
+
+Your recording setup should be organized to show all relevant windows at once: the terminal(s) used for launching nodes, the Gazebo simulation window, and the RViz visualization window.
+
+You do not need to edit the videos, and uploading raw **footage** will suffice. You can split the demonstration into multiple videos **if necessary to show different parts of the requirement.** 
+
+Rules for robot usage will apply for working with the physical Turtlebot3. Please refer to the inventory list given to you separately and the rules for the Robot room usage.
 
 ### Major Changes
 
@@ -234,8 +252,8 @@ Make sure both machines have synced time and are on the same local network if yo
 
 ### Video Demo Requirements (4-5 Minute Demonstration)
 
-Your group will submit a single, continuous video (e.g., MP4 format) that is approximately four to five minutes long. The video must be narrated by a group member explaining your code and demonstrating the system. Please state the names of all group members at the beginning.
-For the live demonstrations, your video must show the screens of both your Remote PC and the Jetson simultaneously. Ensure the Jetson is connected to a microphone and speakers. The demonstration will involve Remote PC and the secondary Jetson.
+Please refer to the video submission requirements in the introduction.
+
 Your submission must include two items: the video file and a single .zip file containing all of your source code.
 
 #### Part A: LLM Testing
