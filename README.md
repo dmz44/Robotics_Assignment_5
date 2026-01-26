@@ -1,4 +1,4 @@
-# CS 7389K (2025): Advanced Robotics and Autonomous Systems
+# 2026 CS 4379K / CS 5342 Introduction to Autonomous Robotics, Robotics and Autonomous Systems
 
 ## Programming Assignment: Milestone 5 (V1.0)
 
@@ -10,7 +10,22 @@ Welcome to CS 7389K. We have prepared a few milestones before the final project,
 
 In this fifth milestone, you will learn how to use a voice recognition neural network, Whisper, and Text to Speech system, Espeak, and run LlaMa Large Language Model by Meta on Nvidia Jetson Xavier NX.
 
-You might find the official tutorial on ROS2 Foxy useful in this course. [https://docs.ros.org/en/foxy/Tutorials.html](https://docs.ros.org/en/foxy/Tutorials.html)
+To do this, you will deploy our pre-configured Docker container that sets up all the software that is required for the assignment.
+Please refer to the following video for an explanation of what a Docker container environment is. 
+
+[https://www.youtube.com/watch?v=Gjnup-PuquQ](https://www.youtube.com/watch?v=Gjnup-PuquQ)
+
+Robot Operating System version is associated with Ubuntu Long-Term Support Versions (e.g. Ubuntu 22.04 with Humble). We are using **ROS 2 Humble in a Docker environment** for Remote-PC. You might find the official tutorial on ROS 2 Humble useful in this course:
+
+[https://docs.ros.org/en/humble/Tutorials.html](https://docs.ros.org/en/humble/Tutorials.html)
+
+For all questions regarding milestone assignments and the robot, **you should contact the Doctoral Instructor Assistant via direct message on Slack**. Please do not contact the Instructor with questions regarding the milestone assignments. This is the URL for Slack for this course. 
+
+<https://spring2026txstrobot.slack.com/>
+
+We use vim (vi) for text editing in a terminal environment. Please refer to the tutorial for Vim if you are not familiar with vim environment for editing documents. 
+
+https://opensource.com/article/19/3/getting-started-vim
 
 Here is an introduction to Whisper.
 [https://openai.com/index/whisper/](https://openai.com/index/whisper/)
@@ -24,9 +39,7 @@ A hardware video demonstration submission is required for Milestone Assignment 5
 
 ### Major Changes
 
-* **v 0.8:** Initial Preview Release, to be updated to 0.9 with removed TODOs.
-* **v 0.9:** Release
-* **v 1.0:** Added some more description on how to run LLAMA and Whisper at the same time.
+* **v 1.0:** Initial Public Release, Added some more description on how to run LLAMA and Whisper at the same time.
 
 ---
 
