@@ -223,9 +223,25 @@ python3 test_llama_text_system.py
 
 ### Part 4: ROS2 Servers and Clients to Integrate Espeak, Whisper, and LlaMa
 
-For part 4, we will provide you with ROS2 script on Jetson interfaces with Espeak, Whisper, and LLaMa. 
+For part 4, we will provide you with the complete ROS2 script on Jetson interfaces with Espeak, Whisper, and LLaMa. 
 
 Please take a look at the provided code for ROS2 Servers and clients, and choose what models you want to use for Whisper and LLaMa by modifying the provided code. 
+
+The following is an instruction to execute the provided code.
+
+**[Remote-PC]** Inside the Docker shell, execute the following.
+
+```bash
+cd ~/my_code/Robotics_Assignment_5/
+python3 sample_code_server.py
+```
+
+**[Remote-PC]** Inside the another Docker shell, execute the following client program that works with the server.
+
+```bash
+cd ~/my_code/Robotics_Assignment_5/
+python3 sample_code_client.py
+```
 
 ---
 
