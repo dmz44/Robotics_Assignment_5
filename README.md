@@ -6,8 +6,6 @@
 
 ### Introduction
 
-Welcome to CS 7389K. We have prepared a few milestones before the final project, in which you will use a physical robot to execute a mission given by us. The following milestones will give you an idea of how to interact with ROBOTIS’ Turtlebot3 Waffle Pi with a Manipulator Arm using the Robot Operating System 2.
-
 In this fifth milestone, you will learn how to use a voice recognition neural network, Whisper, and Text to Speech system, Espeak, and run LlaMa Large Language Model by Meta on Remote-PC.
 
 To do this, you will deploy our pre-configured Docker container that sets up all the software that is required for the assignment.
@@ -59,7 +57,7 @@ Rules for robot usage will apply for working with the physical Turtlebot3. Pleas
 
 ---
 
-### Part 0: Downloading the Demo Files
+### Part 1: Downloading the Demo Files
 
 Execute this instruction on the native shell of the remote-pc. 
 
@@ -73,7 +71,7 @@ wget -c https://huggingface.co/TheBloke/Llama-2-7B-32K-Instruct-GGUF/resolve/mai
 wget -c https://huggingface.co/TheBloke/Llama-2-7b-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf
 ```
 
-### Part 1: Running Whisper Voice Transcription Software and Espeak Text to Speech
+### Part 2: Running Whisper Voice Transcription Software and Espeak Text to Speech
 
 #### Running Whisper and Espeak
 
@@ -123,9 +121,9 @@ Recall that you have access to `tegrastats`, which allows you to monitor computa
 
 ---
 
-### Part 2: Running LLaMa Large Language Model on Jetson
+### Part 3: Running LLaMa Large Language Model on Jetson
 
-Part 2 will show you how to run LLaMa, a Large Language Model from Meta.
+Part 3 will show you how to run LLaMa, a Large Language Model from Meta.
 
 A Large Language Model (LLM) is an advanced type of artificial intelligence (AI) designed to understand, generate, and process human language. At their core, LLMs are Artificial Intelligence models trained to do one simple thing very well: predict the next word. The key technology that makes this possible is the Transformer architecture, which uses a mechanism called self-attention. This allows the model to "pay attention" to different words in a sentence, no matter how far apart they are, to understand the full context. Because they are trained on such diverse data, LLMs are incredibly versatile and can be adapted for many tasks.
 
@@ -174,7 +172,7 @@ python3 test_llama_text.py
 
 ```
 
-**[Remote-PC]** Modify the demo code so that you can chat with a llama via text, but with llama2-7b-chat. Note that we are going to reference models already in the SD card to save time.
+**[Remote-PC]** Modify the demo code so that you can chat with a llama via text, but with llama2-7b-chat. 
 
 ```python
 MODEL_PATH = os.path.expanduser(“llama-2-7b-chat.Q4_K_M.gguf”)
@@ -186,7 +184,7 @@ python3 test_llama_text.py
 
 ```
 
-**[Remote-PC]** Run the demo code that allows you to speak to a LlaMa via voice using whisper and espeak. This code will use llama-2-7b-chat via Q4 quantization. Please take a look at the performance optimizations that are needed on Jetson NX to run llama and whisper at the same time.
+**[Remote-PC]** Run the demo code that allows you to speak to a LlaMa via voice using whisper and espeak. This code will use llama-2-7b-chat via Q4 quantization. 
 
 ```bash
 python3 test_llama_whisper_and_speach.py
@@ -225,21 +223,11 @@ python3 test_llama_text_system.py
 
 ---
 
-### Part 3: Programming ROS2 Servers and Clients to Integrate Espeak, Whisper, and LlaMa
+### Part 4: ROS2 Servers and Clients to Integrate Espeak, Whisper, and LlaMa
 
-For part 3, you need to code a ROS2 communication script on Jetson interfaces with Espeak, Whisper, and LLaMa. You can choose if you want to use either the action server interface, publisher-subscriber interface, or the service client interface for each of the three requirements.
+For part 3, we will provide you with ROS2 script on Jetson interfaces with Espeak, Whisper, and LLaMa. 
 
-Recall that action servers are for robotic actions that take time to complete. We think that LLM responses, Espeak text-to-speech, and Whisper voice transcriptions should all be done with action servers and action clients, similar to controlling a robot arm. However, it is up to you how you manage the ROS2 integration.
-
-If you are declaring a new custom message type for this application, you would need to make a new ROS2 package and use colcon to allow the Python interpreter and ROS2 to see your new message type. However, this is not necessary if you are using a known message type such as a string.
-
-[Reading: making custom messages] [https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html)
-
-You also need a corresponding ROS2 client  that tests the above functionalities of your producer code. The requirements are similar to assignment 4, in that we expect raw, unprocessed output similar to the output of ROS2 CLI tools.
-
-Refer to the Assignment 3 Appendix for the programming guide with ROS2.
-
-Make sure all machines have synced time and are on the same local network if you are using multiple computers.
+Please take a look at the provided code for ROS2 Servers and clients, and choose what models you want to use for Whisper and LLaMa by modifying the provided code. 
 
 ---
 
@@ -251,7 +239,7 @@ Your submission must include two items: the video file and a single .zip file co
 
 #### Part A: LLM Testing
 
-The goal of this part is to demonstrate that you have tested the two provided LLMs.You do not need to demonstrate the testing process live in the video.
+The goal of this part is to demonstrate that you have tested the two provided LLMs.
 
 * **LLM Insights and Logical Test:**
 * **Model Comparison:** In your narration, briefly explain the conceptual difference between chat and instruct LLM models. Then, show a quick example of how their responses differ to the same input, proving you have tested both.
@@ -263,13 +251,10 @@ The goal of this part is to demonstrate that you have tested the two provided LL
 
 #### Part B: Code Walkthrough
 
-The goal of this part is to explain the ROS2 architecture you built. With your source code visible, guide us through the key components of your system.
+The goal of this part is to explain the ROS2 architecture we provided. With your source code visible, guide us through the key components of the scripts.
 
 * **Remote PC Nodes:**
-* Show your Python script for the Remote PC.
-* Briefly explain the client you wrote to send prompts to the LLaMa server.
-* Explain to the client to send a text to the Espeak server.
-* Explain to the client that you used to receive transcribed text from Whisper.
+
 * Explain the Whisper server that captures audio and publishes the transcribed text. Mention the model you chose for this task with brief reasoning behind your decision.
 * Explain the LLaMa server, showing how it receives a prompt, processes it, and returns the generated text as a result. Mention the model you chose for this task with brief reasoning behind your decision.
 * Explain the Espeak server, showing how it receives text as a goal and uses the TTS engine to produce audio.
@@ -277,18 +262,16 @@ The goal of this part is to explain the ROS2 architecture you built. With your s
 
 #### Part C: Live System Demonstration
 
-In this part, you will run your full system to demonstrate each AI model and the ROS2 communication between them. If you have technical difficulties demonstraing the entire system at once, demonstrate this in stages.
+In this part, you will run our full system to demonstrate each AI model and the ROS2 communication between them. 
 
 * **Whisper (Speech-to-Text):**
 * Speak a clear English sentence into the microphone connected to the Jetson (e.g., "Hello, what can you tell me about robotics?").
 * Show the terminal on your Remote PC where your subscriber node prints the correctly transcribed text received from the Jetson's Whisper node.
 
-
 * **LLaMa (Language Model Response):**
 * Take the transcribed text from the previous step and use your Remote PC client to send it as a goal to the LLaMa action server on the Jetson.
 * Show the LLaMa model processing the request on the Jetson's screen.
 * Show the text response from LLaMa being received and displayed on the Remote PC.
-
 
 * **espeak (Text-to-Speech):**
 * Take the text response generated by LLaMa and use your Remote PC client to send it as a goal to the Espeak action server.
@@ -305,7 +288,7 @@ In this part, you will run your full system to demonstrate each AI model and the
 **Running Espeak**
 You can reasonably run the Espeak text-to-speech synthesizer on your own desktop machine with any architecture, meaning CPU performance for Espeak is reasonable. This guide is intended to allow your machine to run Espeak, which might help you with offloading some of the development for this assignment to your own machine. However, while this instruction was tested on our machines, we would not offer official support for you running Espeak on your own machine.
 
-**[Remote PC]** On your terminal, install the Espeak package
+**[Your PC]** On your terminal, install the Espeak package
 
 ```bash
 sudo apt install espeak-ng
@@ -317,13 +300,13 @@ Reference: [https://github.com/openai/whisper](https://github.com/openai/whisper
 
 You can reasonably run the Whisper voice-to-text model on your own desktop machine with any architecture, meaning CPU-only performance for Whisper is reasonable. This guide is intended to allow your machine equipped with an Nvidia GPU to run Whisper, which might help you with offloading some of the development for this assignment to your own machine. However, while this instruction was tested on our machines, we would not offer official support for you running Whisper on your own machine.
 
-**[Remote PC]** It is not recommended to install Whisper or LLama in a Python virtual environment, such as Conda, if you want it to work well with ROS2 or other binary programs installed through apt-get. This is the primary reason why we did not install a Python virtual environment on Jetson.
+**[Your PC]** It is not recommended to install Whisper or LLama in a Python virtual environment, such as Conda, if you want it to work well with ROS2 or other binary programs installed through apt-get. This is the primary reason why we did not install a Python virtual environment on Jetson.
 
 You can deactivate your Python virtual environment temporarily and install the necessary packages if you need your virtual environment.
 
-**[Remote PC]** Install GPU drivers such as CUDA, and neural network dependencies such as Pytorch and TorchAudio. When installing PyTorch and TorchAudio, please follow the exact instructions on the official website. [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) .
+**[Your PC]** Install GPU drivers such as CUDA, and neural network dependencies such as Pytorch and TorchAudio. When installing PyTorch and TorchAudio, please follow the exact instructions on the official website. [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) .
 
-**[Remote PC]** On your terminal, install the OpenAI-Whisper package
+**[Your PC]** On your terminal, install the OpenAI-Whisper package
 
 ```bash
 pip install -U openai-whisper
@@ -335,16 +318,16 @@ Reference: [https://github.com/ggml-org/llama.cpp](https://github.com/ggml-org/l
 
 You can technically run the Llama LLM model on your own desktop machine with any architecture. However, given how demanding LLMs can be, a Nvidia GPU or Apple Silicon will be necessary to achieve reasonable performance. This guide is intended to allow your machine equipped with an Nvidia GPU to run LLMs, which might help you with offloading some of the development for this assignment to your own machine. However, while this instruction was tested on our machines, we would not offer official support for you running LLaMa on your own machine.
 
-**[Remote PC]** Install NVidia GPU drivers, such as CUDA drivers.
+**[Your PC]** Install NVidia GPU drivers, such as CUDA drivers.
 
-**[Remote PC]** On your terminal, install llama-cpp-python with DGGML_CUDA args. If you do not have the args, you will not be able to offload your layers onto the GPU, resulting in low performance.
+**[Your PC]** On your terminal, install llama-cpp-python with DGGML_CUDA args. If you do not have the args, you will not be able to offload your layers onto the GPU, resulting in low performance.
 
 ```bash
 CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
 
 ```
 
-**[Remote PC]** Llama.cpp uses a specific format called GGUF. Please download the models for the assignment from the following links on HuggingFace. They do not require api authorization.
+**[Your PC]** Llama.cpp uses a specific format called GGUF. Please download the models for the assignment from the following links on HuggingFace. They do not require api authorization.
 
 ```bash
 wget -c https://huggingface.co/TheBloke/Llama-2-7B-32K-Instruct-GGUF/resolve/main/llama-2-7b-32k-instruct.Q4_K_M.gguf
@@ -352,19 +335,20 @@ wget -c https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-
 
 ```
 
-**[Remote PC]** Modify the example codes given to reference downloaded models from step 3.
+**[Your PC]** Modify the example codes given to reference downloaded models from step 3.
 
 #### [Recommended Reading] Prompt Engineering Techniques for Large Language Models
 
 **[Recommended Reading] Can Large Language Models Transform Computational Social Science?**
-Referenced with permission from Dr. Veronica, Computer Science Professor from Texas State University.
+
 [https://aclanthology.org/2024.cl-1.8/](https://aclanthology.org/2024.cl-1.8/)
 
 One strength of current LLMs is their ability to be “programmed” through natural language instructions. This process is called prompt design or prompt engineering. However, prompt design is more of an art than a science, and there is no fixed way to get the best result for every scenario.
+
 Nevertheless, after years of experience dealing with LLMs, certain sets of guidelines emerged from the know-how of the practitioners. The following guideline discusses how to get consistent machine-readable outputs for CSS tasks. While authors did not intend to use these techniques for robotics tasks, they are still relevant today.
 
 **[Recommended Reading]  Large Language Models are Zero-Shot Reasoners.**
-Referenced with permission from Dr. Veronica, Computer Science Professor from Texas State University.
+
 [https://arxiv.org/pdf/2205.11916](https://arxiv.org/pdf/2205.11916)
 
 Along with these helpful guidelines, there are prompting techniques that guide LLMs to the desired output. Here we will discuss Zeroshot prompting, Few-shot prompting, and Chain of Thought prompting with a relevant diagram from Kojima et.al’s paper and relevant examples in the context of robotics.
@@ -428,6 +412,7 @@ This should be enough for the requirements of assignment 5. However, the output 
 
 **[Recommend Reading] ReAct: Synergizing Reasoning and Acting in Language Models**
 [https://arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629)
+
 **[Recommend Reading] ReAct prompting.**
 [https://www.promptingguide.ai/techniques/react](https://www.promptingguide.ai/techniques/react)
 
@@ -500,6 +485,7 @@ LLM Generates:
 Implementing a full ReAct prompt system would be a challenge. However, this kind of corrective loop would be necessary for a production system designed to control robots reliably outside the controlled lab environment.
 
 We would leave you with a couple of free prompt optimizer tools that optimize prompts for LLMs for you to explore.
+
 [https://www.quartzite.ai/tools/free-ai-prompt-optimizer](https://www.quartzite.ai/tools/free-ai-prompt-optimizer)
 [https://promptperfect.jina.ai/interactive](https://promptperfect.jina.ai/interactive)
 
@@ -509,9 +495,13 @@ Jetson has limited resources compared to a full-fledged Desktop with a large pow
 This reading assumes that you have generic knowledge of Large Language Models, including tokenization, embeddings, and the training process of LLMs. For people who need a refresher, the following reading is recommended.
 
 **[Recommended reading]: Dataiku, What is a Large Language Model?**
-[https://www.dataiku.com/stories/detail/what-is-a-large-language-model/?utm_campaign=GLO%20CONTENT%20Golden%20Pages%20FY26&utm_source=nam-adwords&utm_medium=paid-search&gad_source=1&gad_campaignid=22196779666&gbraid=0AAAAAC1WRxmEO7TADAdjCbQXRn1ze3zjs&gclid=CjwKCAiAwqHIBhAEEiwAx9cTeZxp7mWAl2ZPp9TnbudbtzBQqHJiqcV4gBKzixensqk9hlIBecsl7RoCUssQAvD_BwE](https://www.dataiku.com/stories/detail/what-is-a-large-language-model/?utm_campaign=GLO%20CONTENT%20Golden%20Pages%20FY26&utm_source=nam-adwords&utm_medium=paid-search&gad_source=1&gad_campaignid=22196779666&gbraid=0AAAAAC1WRxmEO7TADAdjCbQXRn1ze3zjs&gclid=CjwKCAiAwqHIBhAEEiwAx9cTeZxp7mWAl2ZPp9TnbudbtzBQqHJiqcV4gBKzixensqk9hlIBecsl7RoCUssQAvD_BwE)
+
+[https://www.dataiku.com/stories/detail/what-is-a-large-language-model/?utm_campaign=GLO%20CONTENT%20Golden%20Pages%20FY26&utm_source=nam-adwords&utm_medium=paid-search&gad_source=1&gad_campaignid=22196779666&gbraid=0AAAAAC1WRxmEO7TADAdjCbQXRn1ze3zjs&gclid=CjwKCAiAwqHIBhAEEiwAx9cTeZxp7mWAl2ZPp9TnbudbtzBQqHJiqcV4gBKzixensqk9hlIBecsl7RoCUssQAvD_BwE]
+
+(https://www.dataiku.com/stories/detail/what-is-a-large-language-model/?utm_campaign=GLO%20CONTENT%20Golden%20Pages%20FY26&utm_source=nam-adwords&utm_medium=paid-search&gad_source=1&gad_campaignid=22196779666&gbraid=0AAAAAC1WRxmEO7TADAdjCbQXRn1ze3zjs&gclid=CjwKCAiAwqHIBhAEEiwAx9cTeZxp7mWAl2ZPp9TnbudbtzBQqHJiqcV4gBKzixensqk9hlIBecsl7RoCUssQAvD_BwE)
 
 **LLaMa.cpp Open Source C++ Library**
+
 LlaMa.cpp is an open-source C++ library for running large language models. Being written in plain C++ with no dependencies, it makes it extremely fast and lightweight. A noteworthy feature is that it can offload parts or all parts of models onto the GPU, making it possible to cater to a wide range of devices, including Nvidia Jetson.
 To support this capability on Jetson, llama.cpp was compiled from source with support for CUDA, which also enables other support libraries such as the cuBLAS (Basic Linear Algebra Subprograms) library. It is also important for you to set the microarchitecture in CMake to compile the native code that Jetson Xavier NX can use. (Note: Nvidia Xavier series CUDA microarchitecture is 72). All of this can be done with the following flags while running CMake.
 
@@ -606,20 +596,29 @@ while True:
 ```
 
 **Quantization Techniques for LLMs**
+
 Even with optimizations made on LlaMa.cpp, we still need to optimize the model itself to run on Jetson. One of the most important techniques is quantization. Quantization is the process of reducing the precision of a model's weights (its parameters). Most models are trained using 32-bit floating-point (FP32) or 16-bit floating-point (FP16) numbers. These numbers are very precise (e.g., 3.14159265...). Quantization converts these high-precision numbers into lower-precision numbers, like 8-bit integers (INT8) or 4-bit integers (INT4). These numbers are less precise (e.g., they might only store 3.14).
+
 Quantization has two massive benefits for devices like the Jetson. The first is Smaller Model Size. The model file becomes significantly smaller. A 7B model that is ~14GB at FP16 becomes only ~3.8GB at 4-bit. This is the difference between fitting in RAM or not. The second is Faster Inference. CPUs and GPUs can perform math on integers much faster than on floating-point numbers. This results in a significant speed-up in how fast the model can generate tokens. The trade-off is a very small loss in accuracy, but modern quantization methods make this loss acceptable.
 Smaller model size is crucial for running on Jetson Xavier NX, which only has 8GB of RAM to be shared between CPU and GPU. The model's context (the "memory" of the conversation) needs to be where the CPU and GPU can access. Otherwise, if you run out of RAM, you will crash the system. We can mitigate this by increasing the swap space on your Jetson to 8GB, as was already done by the IA. However, using the SD card ‘virtual RAM is very slow. This means that RAM size can be a bottleneck for running LLMs, providing a reason why someone might want Jetsons with higher RAM capacity despite the higher price tag.
+
 Let us now talk about the quantization ecosystem relevant to users when they want to download a model from Hugging Face. The following shows a GGUf file from HuggingFace that was used as a demo in this assignment.
+
 `llama-2-7b-32k-insturct.Q4_K_M.gguf`
 
 From the name of the model, aside from the fact that this is an LlaMa2 model with 7b parameters, we can actually see the type of quantization technique used before distribution on Hugging Face.
 "K-M" refers to a specific, advanced quantization method used in llama.cpp. The "K" stands for K-means (a clustering algorithm). Older 4-bit quantization methods (like Q4_0) were simple and fast but lost more accuracy. The "K-quants" are smarter. Instead of just rounding numbers, the K-means algorithm is used to group the model's weights into clusters. It then stores the centroids (the center point) of those clusters. This method is much better at preserving the important information in the weights, leading to a much lower accuracy loss.
+
 Therefore, when you see a file named `llama-2-7b-chat.Q4_K_M.gguf`, you can note the following from the file name: Q4: It's a 4-bit quantization. _K: It uses the advanced K-means method. _M: This stands for "Medium." It uses a 256-block size, which offers the best balance between quality and file size. You may also see _S (Small), which is slightly lower quality but smaller.
 All in all, Q4_K_M is generally the recommended 4-bit quantization for most users. It provides an excellent balance of small size, high speed, and low accuracy loss.
 
 **Context Window and Finetuning Methods for LLMs**
+
 So far, the discussion on llama.cpp and quantization has been concerned with how to run aspects of LLMs. This information might be enough for you to start running LLMs on Jetson without crashing. However, you should now shift your focus to finding a suitable model for you to achieve your goals of running LLMs on Jetson.
 You might have noticed that sometimes there is a smaller number like 32k listed after a big number, such as 7b, in some LLM models on Hugging Face. For file name `llama-2-7b-32k-insturct.Q4_K_M.gguf`, 32k refers to the token count of the context window. This is the model's memory, equivalent to about 24000 English words with about 3-4 English characters per token. This means the model can read, process, and remember a prompt and its ongoing conversation up to the length of 32k tokens. This is a very large context window. The original Llama 2 model was only 4,000 tokens (4k). A 32k model is specifically designed for tasks involving long documents. You can paste in an entire chapter, a long research paper, or a big block of code, and ask complicated questions with many logical steps, which a 4k model could not handle.
+
 Another factor that influences decisions regarding LLM is the fine-tuning process. Base LLMs are trained to predict words within a context. In the case of LlaMa2, it was trained on a massive portion of the internet. It's a "next-word predictor." If you give it the prompt "What is the capital of France?", it might just complete it with "...and what is its population?" because that's a statistically likely sentence. As such, base LLMs are not very useful for scientific and engineering applications such as robotics.
+
 We can specialize generic base LLMs to specific applications with a fine-tuning process. So far, we have given you access to two types of models, chat and instruct. Chat models are finetuned on a dataset of high-quality multi-turn conversations. It learns the "recipe" for being a helpful chatbot. Now, when you ask "What is the capital of France?", it knows you're asking a question and responds, "The capital of France is Paris.". As such, it learns the flow and structure of a back-and-forth dialogue. Its ultimate goal is to make the model an excellent conversational partner. As such, it's optimized for natural, multi-turn dialogue, remembering previous parts of the conversation. Instruct models are finetuned on a dataset of (instruction, response) pairs. It's like a giant flashcard deck of commands and the correct answers intended for a skilled assistant. For example, an instruction can be "Summarize the following article about electronics", and the response can be  "This article discusses the…”. As such, it learns how to follow specific, single-turn commands. It's task-oriented. You give it a clear task, and it executes that task.
+
 In conclusion, while there are many different factors that influence decisions on which models to use, such as multi-modality and benchmark performance, we often need to make compromises to find a model that works for a purpose. We often find that brute forcing does not work due to resource constraints. Nevertheless, there can still be some compromises that allow at least part of what we want. In that case, we need to find optimizations and specializations necessary to find a good middle ground for our tasks.
