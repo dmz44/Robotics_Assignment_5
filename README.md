@@ -43,7 +43,7 @@ You need to demonstrate that you can utilize various natural language pipelines 
 
 ### Video Demo Requirements
 
-Your group will **record** one or more video clips. The estimated total length of the video clips is approximately two and a half minutes. **While you do not need to perform complex editing, please keep the total duration to a few minutes to ensure it remains concise.** One group member should narrate the video, explaining each step as it's performed. At the beginning of the first video clip, please show every group member's face and state the names of all group members.
+Your group will **record** one or more video clips. The estimated total length of the video clips is approximately four and a half minutes. **While you do not need to perform complex editing, please keep the total duration to a few minutes to ensure it remains concise.** One group member should narrate the video, explaining each step as it's performed. At the beginning of the first video clip, please show every group member's face and state the names of all group members.
 
 Your recording setup should be organized to show all relevant windows at once: the terminal(s) used for launching nodes, the Gazebo simulation window, and the RViz visualization window.
 
@@ -53,7 +53,7 @@ Rules for robot usage will apply for working with the physical Turtlebot3. Pleas
 
 ### Major Changes
 
-* **v 1.0:** Initial Public Release, Added some more description on how to run LLAMA and Whisper at the same time.
+* **v 1.0:** Initial Public Release
 
 ---
 
