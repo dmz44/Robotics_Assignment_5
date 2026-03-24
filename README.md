@@ -75,7 +75,7 @@ wget -c https://huggingface.co/TheBloke/Llama-2-7b-Chat-GGUF/resolve/main/llama-
 
 #### Running Whisper and Espeak
 
-Part 1 will show you how to run Whisper and Espeak.
+Part 2 will show you how to run Whisper and Espeak.
 
 To quote the eSpeak developers, eSpeak is a compact open source software speech synthesizer for English and other languages, for Linux and Windows.
 
@@ -225,7 +225,7 @@ python3 test_llama_text_system.py
 
 ### Part 4: ROS2 Servers and Clients to Integrate Espeak, Whisper, and LlaMa
 
-For part 3, we will provide you with ROS2 script on Jetson interfaces with Espeak, Whisper, and LLaMa. 
+For part 4, we will provide you with ROS2 script on Jetson interfaces with Espeak, Whisper, and LLaMa. 
 
 Please take a look at the provided code for ROS2 Servers and clients, and choose what models you want to use for Whisper and LLaMa by modifying the provided code. 
 
