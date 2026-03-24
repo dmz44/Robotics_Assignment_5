@@ -297,7 +297,7 @@ In this part, you will run our full system to demonstrate each AI model and the 
 
 ### Appendix
 
-#### [Guide] How to Run Espeak, Whisper, and LLaMa.cpp on your Ubuntu Desktop
+#### [Optional][Guide] How to Run Espeak, Whisper, and LLaMa.cpp on your Ubuntu Desktop
 
 **Running Espeak**
 You can reasonably run the Espeak text-to-speech synthesizer on your own desktop machine with any architecture, meaning CPU performance for Espeak is reasonable. This guide is intended to allow your machine to run Espeak, which might help you with offloading some of the development for this assignment to your own machine. However, while this instruction was tested on our machines, we would not offer official support for you running Espeak on your own machine.
@@ -507,12 +507,6 @@ We would leave you with a couple of free prompt optimizer tools that optimize pr
 
 Jetson has limited resources compared to a full-fledged Desktop with a large power budget. As such, optimizations are necessary to run demanding AI models such as Large Language Models. We have summarized such optimizations in this section. This section focuses on how to set up the Jetson environment for running LLMs and how to decide on the best model for yourself.
 This reading assumes that you have generic knowledge of Large Language Models, including tokenization, embeddings, and the training process of LLMs. For people who need a refresher, the following reading is recommended.
-
-**[Recommended reading]: Dataiku, What is a Large Language Model?**
-
-[https://www.dataiku.com/stories/detail/what-is-a-large-language-model/?utm_campaign=GLO%20CONTENT%20Golden%20Pages%20FY26&utm_source=nam-adwords&utm_medium=paid-search&gad_source=1&gad_campaignid=22196779666&gbraid=0AAAAAC1WRxmEO7TADAdjCbQXRn1ze3zjs&gclid=CjwKCAiAwqHIBhAEEiwAx9cTeZxp7mWAl2ZPp9TnbudbtzBQqHJiqcV4gBKzixensqk9hlIBecsl7RoCUssQAvD_BwE]
-
-(https://www.dataiku.com/stories/detail/what-is-a-large-language-model/?utm_campaign=GLO%20CONTENT%20Golden%20Pages%20FY26&utm_source=nam-adwords&utm_medium=paid-search&gad_source=1&gad_campaignid=22196779666&gbraid=0AAAAAC1WRxmEO7TADAdjCbQXRn1ze3zjs&gclid=CjwKCAiAwqHIBhAEEiwAx9cTeZxp7mWAl2ZPp9TnbudbtzBQqHJiqcV4gBKzixensqk9hlIBecsl7RoCUssQAvD_BwE)
 
 **LLaMa.cpp Open Source C++ Library**
 
