@@ -53,6 +53,7 @@ Rules for robot usage will apply for working with the physical Turtlebot3. Pleas
 
 ### Major Changes
 
+* **v 1.05:** Major overhaul involving a lot of requested changes
 * **v 1.0:** Initial Public Release
 
 ---
@@ -61,7 +62,7 @@ Rules for robot usage will apply for working with the physical Turtlebot3. Pleas
 
 Execute this instruction on the native shell of the remote-pc. 
 
-**[Remote-PC]** While connected to the internet, git clone and download the demo in my_code folder of the Docker's shared folder. 
+**[Native Bash Shell Remote-PC]** While connected to the internet, git clone and download the demo in my_code folder of the Docker's shared folder. 
 
 ```bash
 cd ~/turtlebot_docker/my_code
@@ -75,25 +76,38 @@ wget -c https://huggingface.co/TheBloke/Llama-2-7b-Chat-GGUF/resolve/main/llama-
 
 #### Running Whisper and Espeak
 
-Part 2 will show you how to run Whisper and Espeak.
+Part 2 will show you how to run Whisper and Espeak. The demo codes allow you to understand and fine-tune Whisper and Espeak parameters without ROS2 components influencing the program.
 
 To quote the eSpeak developers, eSpeak is a compact open source software speech synthesizer for English and other languages, for Linux and Windows.
 
-To quote OpenAI, Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multitasking model that can perform multilingual speech recognition, speech translation, and language identification.
+To quote OpenAI, Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multitasking model that can perform multilingual speech recognition, speech translation, and language identification. This assignment uses faster-whisper, an optimized, high-performance re-implementation of OpenAI's Whisper speech-to-text model using CTranslate2.
 
-This assumes that you have a working setup from Milestone Assignment 1 Part 1. Please execute all instructions with **[Remote PC]** on Docker shell. Note that you have to enable GUI and start the Docker container by following instruction from Milestone Assignment 1. Please execute all instructions with **[Turtlebot Nvidia Jetson]** on Turtlebot Jetson's native bash shell without Docker.
+This assumes that you have a working setup from Milestone Assignment 1 Part 1. Please execute all instructions with **[Remote PC]** on the Docker shell. Note that you have to enable the GUI and start the Docker container by following instruction from Milestone Assignment 1. Please execute all instructions with **[Turtlebot Nvidia Jetson]** on Turtlebot Jetson's native bash shell without Docker.
 
 The following instructions are from our own and not from online sources. Please follow carefully and ask the TA for assistance should you face any problems.
 ``
 
-**[Remote-PC]** Go to the folder in a new terminal window
+**[Remote-PC]** Inside a new Docker shell, you can monitor the system resources on the Remote-PC with the following commands running in the background.
+
+**CPU and RAM Usage**
+```
+top
+```
+
+**GPU Usage**
+```
+nvidia-smi
+```
+
+
+**[Remote-PC]** Inside a new Docker shell, go to the folder in a new terminal window.
 
 ```bash
 cd ~/my_code/Robotics_Assignment_5/Assignment_5_demo
 
 ```
 
-**[Remote-PC]** Run the demo code that incorporates Espeak with `_tts_worker` function and whisper with `transcribe_whisper`. You would be able to speak for 5 seconds, and whatever gets transcribed would be echoed(spoken) by Espeak. Note that Whisper is capable of transcribing non-English sentences, unless specified in step 5.
+**[Remote-PC]** Run the demo code within the Dockershell that incorporates Espeak  and whisper. You would be able to speak for 5 seconds, and whatever gets transcribed would be echoed(spoken) by Espeak. Note that Whisper is capable of transcribing non-English sentences, unless specified as English-only in the next step.
 
 ```bash
 python3 test_whisper.py
@@ -117,7 +131,6 @@ The available models are listed in order from smallest to largest: tiny, base, s
 | medium / medium.en | 769 M | ~5 GB |
 | large | 1550 M | ~10 GB |
 
-Recall that you have access to `tegrastats`, which allows you to monitor computational load on Jetson SOC.
 
 ---
 
@@ -163,7 +176,7 @@ cd ~/my_code/Robotics_Assignment_5/Assignment_5_demo
 **[Remote-PC]** Try running llama-2-7b-32k-insturct via Q4 quantization. 
 
 ```python
-MODEL_PATH = os.path.expanduser(“llama-2-7b-32k-insturct.Q4_K_M.gguf”)
+MODEL_PATH = os.path.expanduser(“~/my_code/Robotics_Assignment_5/Assignment_5_demo/llama-2-7b-32k-insturct.Q4_K_M.gguf”)
 
 ```
 
@@ -175,7 +188,7 @@ python3 test_llama_text.py
 **[Remote-PC]** Modify the demo code so that you can chat with a llama via text, but with llama2-7b-chat. 
 
 ```python
-MODEL_PATH = os.path.expanduser(“llama-2-7b-chat.Q4_K_M.gguf”)
+MODEL_PATH = os.path.expanduser(“~/my_code/Robotics_Assignment_5/Assignment_5_demo/llama-2-7b-chat.Q4_K_M.gguf”)
 
 ```
 
@@ -183,11 +196,10 @@ MODEL_PATH = os.path.expanduser(“llama-2-7b-chat.Q4_K_M.gguf”)
 python3 test_llama_text.py
 
 ```
-
-**[Remote-PC]** Run the demo code that allows you to speak to a LlaMa via voice using whisper and espeak. This code will use llama-2-7b-chat via Q4 quantization. 
+**[Remote-PC]** You can add the ability to have a system prompt or a pre-prompt by modifying the text inference loop. 
 
 ```bash
-python3 test_llama_whisper_and_speach.py
+python3 test_llama_text_system.py
 
 ```
 
@@ -210,10 +222,11 @@ python3 test_llama_whisper_and_speach.py
 * **Code Generation**
 * Prompt 1: I'm building a service robot. Can you help me write a Python function for human interaction?
 
-**[Remote-PC]** You can add the ability to have a system prompt or a pre-prompt by modifying the text inference loop. The example is provided as part of the demo file zip. Try adding appropriate system prompts designed by you to the tasks outlined in the 4th step.
+
+**[Remote-PC]** Run the demo code that allows you to speak to a LlaMa via voice using whisper and espeak. This code will use llama-2-7b-chat via Q4 quantization. 
 
 ```bash
-python3 test_llama_text_system.py
+python3 test_llama_whisper_and_speach.py
 
 ```
 
@@ -351,7 +364,7 @@ wget -c https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-
 
 **[Your PC]** Modify the example codes given to reference downloaded models from step 3.
 
-#### [Recommended Reading] Prompt Engineering Techniques for Large Language Models
+#### [Guide] Prompt Engineering Techniques for Large Language Models
 
 **[Recommended Reading] Can Large Language Models Transform Computational Social Science?**
 
@@ -359,7 +372,7 @@ wget -c https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-
 
 One strength of current LLMs is their ability to be “programmed” through natural language instructions. This process is called prompt design or prompt engineering. However, prompt design is more of an art than a science, and there is no fixed way to get the best result for every scenario.
 
-Nevertheless, after years of experience dealing with LLMs, certain sets of guidelines emerged from the know-how of the practitioners. The following guideline discusses how to get consistent machine-readable outputs for CSS tasks. While authors did not intend to use these techniques for robotics tasks, they are still relevant today.
+Nevertheless, after years of experience dealing with LLMs, certain sets of guidelines emerged from the know-how of the practitioners. The above paper discusses how to get consistent machine-readable outputs for CSS tasks. While authors did not intend to use these techniques for robotics tasks, the techniques presented are still relevant today.
 
 **[Recommended Reading]  Large Language Models are Zero-Shot Reasoners.**
 
@@ -503,9 +516,9 @@ We would leave you with a couple of free prompt optimizer tools that optimize pr
 [https://www.quartzite.ai/tools/free-ai-prompt-optimizer](https://www.quartzite.ai/tools/free-ai-prompt-optimizer)
 [https://promptperfect.jina.ai/interactive](https://promptperfect.jina.ai/interactive)
 
-#### [Optional Reading] Running Large Language Models on Embedded Systems
+#### [Optional Reading] Running Large Language Models on Edge Systems
 
-Jetson has limited resources compared to a full-fledged Desktop with a large power budget. As such, optimizations are necessary to run demanding AI models such as Large Language Models. We have summarized such optimizations in this section. This section focuses on how to set up the Jetson environment for running LLMs and how to decide on the best model for yourself.
+Edge systems such as laptops and Nvidia Jetsons have limited resources compared to full-fledged servers with a large power budget. As such, optimizations are necessary to run demanding AI models such as Large Language Models. We have summarized such optimizations in this section. This section focuses on how to set up the Jetson environment for running LLMs and how to decide on the best model for yourself.
 This reading assumes that you have generic knowledge of Large Language Models, including tokenization, embeddings, and the training process of LLMs. For people who need a refresher, the following reading is recommended.
 
 **LLaMa.cpp Open Source C++ Library**
