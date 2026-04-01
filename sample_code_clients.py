@@ -59,7 +59,8 @@ class NLPClient(Node):
             print("1. Test Text-to-Speech (eSpeak)")
             print("2. Test Speech-to-Text (Whisper)")
             print("3. Test LLM Generation (Llama-2)")
-            print("4. Exit")
+            print("4. Test Full Integration Pipeline for 1. to 3.")
+            print("5. Exit")
             print("="*40)
             
             choice = input("Select an option (1-4): ")
@@ -94,6 +95,11 @@ class NLPClient(Node):
                 self.llm_done.wait() # Pause menu until server sends [DONE]
                 
             elif choice == '4':
+            ##############################################################################
+            # HINT: Complete this section that integrates 1 to 3 so that you can have voice conversations with LLM.
+                print("Not Implemented. Please Implement as a requirement for Assignment 5.")
+            ############################################################################## 
+            elif choice == '5':
                 print("Exiting...")
                 return
             else:
