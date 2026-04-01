@@ -289,15 +289,15 @@ Here is a summary of the prompting techniques useful for these tasks. For a more
 
 **Tasks**
 
-* **Follow-up Question**
+**Follow-up Question**
 * Prompt 1: "Can you explain the difference between forward and inverse kinematics for a robotic arm?"
 * (After it answers...)
 * Prompt 2: "Which one is generally considered more computationally difficult to solve and why?"
 
-* **Open-Ended Question**
+**Open-Ended Question**
 * Prompt 1: How does a SLAM work in a robot?
 
-* **Strict Formatting**
+**Strict Formatting**
 * Prompt 1: Provide the main components of a ROS 2 system as a bulleted list. Do not add any introductory or concluding sentences. List exactly four components.
 
 
