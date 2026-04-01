@@ -315,14 +315,14 @@ The following is an instruction to execute the provided code.
 
 ```bash
 cd ~/my_code/Robotics_Assignment_5/
-python3 sample_code_server.py
+python3 sample_code_servers.py
 ```
 
 **[Remote-PC]** Inside the another Docker shell, execute the following client program that works with the server.
 
 ```bash
 cd ~/my_code/Robotics_Assignment_5/
-python3 sample_code_client.py
+python3 sample_code_clients.py
 ```
 
 **[Remote-PC]** While the codes run as is, you are still expected to modify the parameters within the code if necessary to complete the demo requirements.
