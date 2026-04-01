@@ -293,10 +293,6 @@ python3 test_llama_text_system.py
 * Prompt 1: Provide the main components of a ROS 2 system as a bulleted list. Do not add any introductory or concluding sentences. List exactly four components.
 
 
-* **Code Generation**
-* Prompt 1: I'm building a service robot. Can you help me write a Python function for human interaction?
-
-
 **[Remote-PC]** Try running the demo code that allows you to speak to a LlaMa via voice using whisper and espeak. Close the previous program with ctrl+c and try running this demo code on the docker shell.
 
 ```bash
