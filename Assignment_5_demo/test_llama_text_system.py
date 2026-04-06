@@ -82,7 +82,7 @@ def main():
                 print(token, end="", flush=True)
         
         if full_reply:
-            messages.append({"role": "user: ", "content": full_reply})
+            messages.append({"role": "assistant: ", "content": full_reply})
         
         print()
 
