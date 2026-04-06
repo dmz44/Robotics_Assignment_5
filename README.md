@@ -299,19 +299,19 @@ You should modify prompts with appropriate techniques if you were to try out dif
 
 **Follow-up Question**
 ```
-* Can you explain the difference between forward and inverse kinematics for a robotic arm?"
+Can you explain the difference between forward and inverse kinematics for a robotic arm?"
 
 (After it answers...)
 
-* "Which one is generally considered more computationally difficult to solve and why?"
+"Which one is generally considered more computationally difficult to solve and why?"
 ```
 **Open-Ended Question**
 ```
-* How does a SLAM work in a robot?
+How does a SLAM work in a robot?
 ```
 **Strict Formatting**
 ```
-* Provide the main components of a ROS 2 system as a bulleted list. Do not add any introductory or concluding sentences. List exactly four components.
+Provide the main components of a ROS 2 system as a bulleted list. Do not add any introductory or concluding sentences. List exactly four components.
 ```
 **Robotic Action Planning**
 
@@ -331,7 +331,7 @@ You should modify prompts with appropriate techniques if you were to try out dif
 
 Enter the following as your user prompt. Notice how we provide two examples of what we want before giving the robot its actual task, restricting the target objects to either a "bottle" or a "teddy bear."
 
-We provide this few-shot prompting example to get you started.
+We provide this few-shot prompting example to get you started on the robotic action planning task. Please modify as you see fit.
 ```
 Command: 'Find the teddy bear on the left.'
 Output: [{"action": "scan_environment", "target": "teddy bear"}, {"action": "move_to_left", "target": "teddy bear"}, {"action": "grab_object", "target": "teddy bear"}]
