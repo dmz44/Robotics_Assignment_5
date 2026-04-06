@@ -21,6 +21,9 @@ For all questions regarding milestone assignments and the robot, **you should co
 
 <https://spring2026txstrobot.slack.com/>
 
+For those of you who are not familiar with LLMs, here is a brief introduction. 
+<https://mark-riedl.medium.com/a-very-gentle-introduction-to-large-language-models-without-the-hype-5f67941fa59e>
+
 Here is an introduction to Whisper.
 [https://openai.com/index/whisper/](https://openai.com/index/whisper/)
 
