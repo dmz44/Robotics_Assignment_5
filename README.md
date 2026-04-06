@@ -295,21 +295,23 @@ Here is a summary of the prompting techniques useful for these tasks. For a more
 
 **General Question and Answering Tasks**
 
-You should modify prompts 1 and 2 with appropriate techniques if you were to try out different prompting methods. We recommend using these general questions to try out zero-shot, few-shot and chain-of-thought prompting techniques.
+You should modify prompts with appropriate techniques if you were to try out different prompting methods. We recommend using these general questions to try out zero-shot, few-shot, and chain-of-thought prompting techniques.
 
 **Follow-up Question**
 ```
-* Prompt 1: "Can you explain the difference between forward and inverse kinematics for a robotic arm?"
-* (After it answers...)
-* Prompt 2: "Which one is generally considered more computationally difficult to solve and why?"
+* Can you explain the difference between forward and inverse kinematics for a robotic arm?"
+
+(After it answers...)
+
+* "Which one is generally considered more computationally difficult to solve and why?"
 ```
 **Open-Ended Question**
 ```
-* Prompt 1: How does a SLAM work in a robot?
+* How does a SLAM work in a robot?
 ```
 **Strict Formatting**
 ```
-* Prompt 1: Provide the main components of a ROS 2 system as a bulleted list. Do not add any introductory or concluding sentences. List exactly four components.
+* Provide the main components of a ROS 2 system as a bulleted list. Do not add any introductory or concluding sentences. List exactly four components.
 ```
 **Robotic Action Planning**
 
@@ -323,13 +325,13 @@ This is a prompt asking for robot actions.
 
 ```
 Please grab the bottle on the right and drop it in front of me, who is behind you at the start.'
-``
+```
 
 You should modify prompts with appropriate techniques if you were to try out different prompting methods.
 
 Enter the following as your user prompt. Notice how we provide two examples of what we want before giving the robot its actual task, restricting the target objects to either a "bottle" or a "teddy bear."
 
-We provide this few-shot prompting example.
+We provide this few-shot prompting example to get you started.
 ```
 Command: 'Find the teddy bear on the left.'
 Output: [{"action": "scan_environment", "target": "teddy bear"}, {"action": "move_to_left", "target": "teddy bear"}, {"action": "grab_object", "target": "teddy bear"}]
