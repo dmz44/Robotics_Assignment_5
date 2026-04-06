@@ -415,6 +415,7 @@ The goal of this part is to demonstrate that you have tested the two provided LL
 * **Model Comparison:** In your narration, briefly explain the conceptual difference between chat and instruct LLM models. 
 * **System Prompt Comparison:** In your narration, briefly explain the effects of having a system prompt and not having a system prompt.
 * **Prompting Technique Comparison:** In your narration, briefly explain your experience with  various prompting techniques.
+  
 **Task Execution:** Discuss the result of various tests you did with prompts in Part 3 of the assignment.
     * Did the LLM successfully output what you specified? State with a few examples.
     * Compare how the llama-2-7b-chat model handles output strict constraint versus the llama-2-7b-32k-instruct model. Which one was better at following your request? State with a few examples.
