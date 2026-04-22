@@ -1,6 +1,6 @@
 # 2026 CS 4379K / CS 5342 Introduction to Autonomous Robotics, Robotics and Autonomous Systems
 
-## Programming Assignment: Milestone 5 (V1.1)
+## Programming Assignment: Milestone 5 (V1.15)
 
 **Minhyuk Park and Tsz-Chiu Au**
 
@@ -32,8 +32,6 @@ Here is an introduction to LLaMa Large Language Model.
 
 ### Assignment requirement
 
-**Source Code Submission** is required for Milestone Assignment 5 on Canvas.
-
 A hardware video demonstration submission is required for Milestone Assignment 5. 
 
 You need to demonstrate that you can utilize various natural language pipelines for your needs. Refer to the demo requirement section at the end of the milestone assignment on what to include in the video.
@@ -56,6 +54,7 @@ Rules for robot usage will apply for working with the physical Turtlebot3. Pleas
 
 ### Major Changes
 
+* **v 1.15:** Submission of source code was changed to optional as part of the request from the instructor.
 * **v 1.1:** Changes to Prompting content.
 * **v 1.05:** Major overhaul involving a lot of requested changes.
 * **v 1.0:** Initial Public Release
@@ -405,7 +404,7 @@ python3 sample_code_clients.py
 
 Please refer to the video submission requirements in the introduction.
 
-Your submission must include two items: the video file and a single .zip file containing all of your source code.
+Your submission must include links to the video files.
 
 #### Part A: LLM Testing
 
